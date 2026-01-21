@@ -11,12 +11,12 @@ item = [
     ('product8', 90),
 ]
 
-for val in numbers:
-    print(val[1])
+# for val in numbers:
+#     print(val[1])
     
     
-def item_sorts(item):
-    return item[1]
+def item_sorts(items):
+    return items[1]
 
 item.sort(key=item_sorts)
 print(item)
