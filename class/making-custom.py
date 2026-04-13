@@ -2,9 +2,13 @@ class TagCloud:
     def __init__(self):
         self.tags = {}
         
-    def add(self, tag):
-        self.tags[tag.lower()] = self.tags.get(tag.lower(), 0) + 1         
-         
+    def __add__(self, tag):
+        new = TagCloud() 
+        new.tags = self.tags.copy()
+        tag = tag.lower()
+        new.tags[tag] = new.tags.get(tag, 0) + 1
+        return new
+        
 cloud = TagCloud()
-cloud.add("python")
+cloud = cloud + "python"
 print(cloud.tags)
